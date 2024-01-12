@@ -53,7 +53,7 @@ module.exports = {
     message.delete().catch((e) => print.error(e));
 
     // Send the owofied message
-    webhook.send(owoify(message.content.slice(5), "uwu"));
+    webhook.send(owoify(message.content.slice(5), "uwu").slice(0, 2000));
 
     // Webhook delete
     tempWebhook.delete("Temporary webhook no longer needed.");
