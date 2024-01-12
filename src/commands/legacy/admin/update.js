@@ -144,9 +144,12 @@ module.exports = {
           "Alrighty! Fetching the latest update..."
         );
         const pull = execSync("git pull").toString();
+        const npm = execSync("npm install").toString();
         reply.delete();
         await message.channel.send(
-          `${pull.slice(0, 24)}\n\`\`\`diff\n${pull.slice(25)}\n\`\`\``
+          `${pull.slice(0, 24)}\n\`\`\`diff\n${pull.slice(
+            25
+          )}\n\`\`\`\n\`\`\`diff\n${npm}\n\`\`\``
         );
         message.channel.send("Restarting bot...");
         setTimeout(() => process.exit(), 5000);
